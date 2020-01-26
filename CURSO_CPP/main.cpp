@@ -2,9 +2,10 @@
 
 int main()
 {
-	int numero[50];
-	int serie[50];
-	for (int k = 0; k < 50; ++k)
+	int n = 50;
+	int numero[n];
+	int serie[n];
+	for (int k = 0; k < n; ++k)
 	{
 		numero[k] = k;
 		serie[k] = k * 10;
