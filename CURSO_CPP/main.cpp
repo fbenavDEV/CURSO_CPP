@@ -3,32 +3,56 @@
 #include <iomanip>
 #include <random>
 #include <fstream>
+#include <set>
 
 int main(int n_args, char** args)
 {
-	int n = atoi(args[2]);
-	std::string filename(args[1]);
-	std::random_device dev;
-	std::mt19937 rnd(dev());
-	std::uniform_int_distribution<> gen_numero(0,99);
-	std::uniform_int_distribution<> gen_serie(0, 999);
-	unsigned int* numero = new unsigned int[n];
-	unsigned int* serie = new unsigned int[n];
-	for (int k = 0; k < n; ++k)
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	unsigned int n_bolas = 100;
+	unsigned int n_premios = 100;
+
+	double* w = new double[n_bolas];
+	bool* sacada = new bool[n_bolas];
+	double wt = 0;
+	for (unsigned int k = 0; k < n_bolas; ++k)
 	{
-		numero[k] = gen_numero(rnd);
-		serie[k] = gen_serie(rnd);
+		w[k] = 1+0.1*(double)k;
+		sacada[k] = false;
+		wt = wt + w[k];
 	}
-	std::ofstream file(filename);
-	std::string msj = "Sorteo de loteria con Mersenne-Twister";
-	file << msj << std::endl;
-	file << "Numero , Serie" << std::endl;
-	for (int k = 0; k < n; ++k)
+	for (unsigned int k = 0; k < n_bolas; ++k)
 	{
-		file << std::setw(2) << std::setfill('0') << numero[k] << ",";
-		file << std::setw(3) << std::setfill('0') << serie[k];
-		file << std::endl;
+		std::cout << w[k] / wt << "  ";
 	}
-	file.close();
+
+	std::discrete_distribution<> dd(w, w + n_bolas);
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "Numeros de salida: " << std::endl;
+	for (unsigned int y = 0; y < n_premios; ++y)
+	{
+		bool bola_out = true;
+		unsigned int bola = 0;
+		while (bola_out)
+		{
+			int s = dd(gen);
+			bola_out = sacada[s];
+			if (!bola_out)
+			{
+				sacada[s] = true;
+				bola = s;
+			}		
+			else
+			{
+				std::cout << "x";
+			}
+		}
+		std::cout << std::endl;
+		std::cout << bola << std::endl;	
+	}
+	std::getchar();
 	return(0);
+	delete []w;
+	delete []sacada;
 }
