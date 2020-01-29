@@ -138,7 +138,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="chances.cpp" />
+    <ClCompile Include="etiquetador_premios.cpp" />
+    <ClCompile Include="loteria.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="tombola.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="chances.h" />
+    <ClInclude Include="etiquetador_premios.h" />
+    <ClInclude Include="ganador.h" />
+    <ClInclude Include="loteria.h" />
+    <ClInclude Include="tombola.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

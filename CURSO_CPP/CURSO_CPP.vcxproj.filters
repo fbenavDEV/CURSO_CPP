@@ -18,5 +18,34 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tombola.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="etiquetador_premios.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chances.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="loteria.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tombola.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="etiquetador_premios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chances.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="loteria.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ganador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
